@@ -37,17 +37,20 @@ npm run build
 
 Dark mode is the default. A visitor's explicit choice is saved under `mehbur-theme` in local storage. If storage is blocked, theme switching still works for the current page. Without JavaScript, content and project source links remain available, and the contact section provides a direct email link.
 
-## Contact form activation
+## Contact form and delivery checks
 
-The form submits in the background to **FormSubmit**, which forwards submissions to **abir.rahman9795@gmail.com**. Visitors remain on the portfolio and see an inline confirmation after the provider accepts the request. It does not need access to your Gmail account, a Gmail password, or an API key.
+The form submits in the background to **Formspree** at `https://formspree.io/f/xzeelpqp`. Formspree forwards notifications to the recipient configured in the form's dashboard. The intended recipient is **abir.rahman9795@gmail.com**. Visitors remain on the portfolio and receive an inline confirmation after the provider accepts the request.
 
-1. Submit the form once if activation has not yet been triggered.
-2. Open FormSubmit's activation email in Gmail, checking Spam if necessary, and confirm the destination address.
-3. After activation, submit a short test through the live site and confirm that it arrives. Replying to a submission uses the visitor's email address.
+To verify actual delivery:
 
-The form uses FormSubmit's official AJAX endpoint and includes a hidden honeypot. Browser validation checks the name, email, and message. The send button and fields are locked while a request is pending to prevent duplicates. Success requires both an HTTP success response and an explicit provider success flag. Errors and a 20-second timeout preserve the message for retry; there is no automatic native POST or redirect fallback. If JavaScript is unavailable, visitors can use the direct email link.
+1. Confirm the recipient email is verified in the Formspree account.
+2. Submit a short test through the live website.
+3. Confirm that the submission appears in the Formspree dashboard, then check Gmail (including Spam). An API acceptance confirms submission to Formspree, not inbox delivery.
+4. If the dashboard records the message but email does not arrive, check the form's email notification settings and recipient verification. See [Formspree's email troubleshooting guide](https://help.formspree.io/articles/troubleshooting/i-m-not-receiving-emails/).
 
-The form sends the visitor's name, email, and message to FormSubmit. Its privacy policy is linked beside the send button. See the [official FormSubmit documentation](https://formsubmit.co/documentation) for delivery and activation details.
+The JSON request contains `name`, `email`, `message`, `subject`, `source`, and the hidden `_gotcha` honeypot. The send button and visible fields are locked while a request is pending to prevent duplicate submissions. Success requires a successful HTTP status and Formspree's JSON success response; validation errors and unexpected responses preserve the message. A 20-second timeout restores retry controls. The form never automatically falls back to a native POST or navigates to the provider's thank-you page.
+
+No private API key is embedded in the site. The endpoint is a public form URL. Without JavaScript, visitors can use the direct email link. The privacy notice beside the send button links to [Formspree's policy](https://formspree.io/legal/privacy-policy/). [AJAX documentation](https://help.formspree.io/articles/building-your-form/submit-forms-with-javascript-ajax)
 
 ## GitHub Pages and future hosting
 
@@ -59,8 +62,8 @@ To move to another host or domain later:
 
 1. Upload the output of `npm run build`, or connect this repository with the build command `npm run build` and output directory `dist`.
 2. Update the canonical URL, `og:url`, and absolute `og:image` in `index.html`.
-3. Keep the FormSubmit AJAX endpoint in `data-submit-endpoint` if the destination email is unchanged. Submissions include the current page address automatically; no thank-you redirect needs configuring.
-4. Check FormSubmit activation for the new site and submit a test message.
+3. Keep the Formspree endpoint in `action` and `data-submit-endpoint` if the form account is unchanged. Submissions include the current page address automatically; no thank-you redirect needs configuring.
+4. Update any Formspree domain restriction for the new site, then submit a test message and verify both the dashboard record and email notification.
 
 ## Content and verification
 
@@ -68,4 +71,4 @@ Project descriptions use the CV and public repository documentation. FabricFlow 
 
 Education dates were recovered from text outside the original CV page boundary: expected NSU graduation December 2026, HSC 2020, and SSC 2018. Project artwork is labelled illustration and is not presented as an application screenshot.
 
-Validation covers JavaScript syntax, HTML structure and local references, ARIA references, theme switching and saved preferences, project filtering, menu and dialog handlers, form validation, asynchronous success/error handling, duplicate prevention, and timeouts, primary text contrast, and the static build. DOM checks do not establish browser layout, native keyboard focus behavior, spam-check behavior, or email delivery. No browser connection was available for visual testing; verify the layout in your own phone and desktop browsers before sending the link to recruiters.
+Validation covers JavaScript syntax, HTML structure and local references, ARIA references, theme switching and saved preferences, project filtering, menu and dialog handlers, form validation, asynchronous success/error handling, duplicate prevention, timeouts, primary text contrast, and the static build. DOM checks do not establish browser layout, native keyboard focus behavior, spam-check behavior, or email delivery. No browser connection was available for visual testing; verify the layout in your own phone and desktop browsers before sending the link to recruiters.

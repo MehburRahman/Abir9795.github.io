@@ -139,7 +139,7 @@ contactForm?.addEventListener('submit', async event => {
   if (!contactForm.reportValidity()) return;
 
   const payload = Object.fromEntries(new FormData(contactForm));
-  payload._url = window.location.href.split('#')[0];
+  payload.source = window.location.href.split('#')[0];
   const fields = [name, email, message];
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 20000);
@@ -151,6 +151,7 @@ contactForm?.addEventListener('submit', async event => {
   contactForm.setAttribute('aria-busy', 'true');
   formStatus.textContent = 'Sending your message…';
   formStatus.dataset.state = 'pending';
+  let rejectionMessage = '';
 
   try {
     const response = await fetch(contactForm.dataset.submitEndpoint, {
@@ -160,14 +161,21 @@ contactForm?.addEventListener('submit', async event => {
       signal: controller.signal,
     });
     const result = await response.json();
-    if (!response.ok || (result.success !== true && result.success !== 'true')) {
+    const hasErrors = typeof result?.error === 'string' || Array.isArray(result?.errors);
+    if (!response.ok || hasErrors || typeof result?.next !== 'string') {
+      const messages = Array.isArray(result?.errors)
+        ? result.errors.map(error => error?.message).filter(message => typeof message === 'string')
+        : [result?.error].filter(message => typeof message === 'string');
+      rejectionMessage = messages.join(' ').slice(0, 500);
       throw new Error('Submission was not confirmed');
     }
     contactForm.reset();
-    formStatus.textContent = 'Thanks! Your message has been sent. I’ll get back to you by email.';
+    formStatus.textContent = 'Thanks! Your message has been submitted. I’ll get back to you by email.';
     formStatus.dataset.state = 'success';
   } catch {
-    formStatus.textContent = 'Couldn’t confirm your message was sent. Your message is still here — please try again or use the email link.';
+    formStatus.textContent = rejectionMessage
+      ? `${rejectionMessage} Your message is still here — please try again or use the email link.`
+      : 'Couldn’t confirm your message was submitted. Your message is still here — please try again or use the email link.';
     formStatus.dataset.state = 'error';
   } finally {
     clearTimeout(timeout);
