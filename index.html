@@ -25,7 +25,7 @@
         document.documentElement.dataset.theme === 'light' ? '#f6f5ef' : '#111813';
     </script>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="script.js?v=2" defer></script>
   </head>
   <body>
     <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -188,19 +188,19 @@
             <span class="copy-status sr-only" role="status"></span>
             <div class="contact-socials"><a href="https://www.linkedin.com/in/mehbur-rahman" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><a href="https://github.com/Abir9795" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><a href="https://codeforces.com/profile/abir.rahman9795" target="_blank" rel="noopener noreferrer">Codeforces <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a></div>
           </div>
-          <form class="contact-form" action="https://formsubmit.co/abir.rahman9795@gmail.com" method="POST" data-contact-form>
+          <form class="contact-form" action="https://formsubmit.co/abir.rahman9795@gmail.com" method="POST" data-contact-form data-submit-endpoint="https://formsubmit.co/ajax/abir.rahman9795@gmail.com">
             <div class="form-heading"><h3>Send me a message</h3><p>An introduction, a question, or an opportunity. I’m listening.</p></div>
             <input type="hidden" name="_subject" value="New message from Mehbur’s portfolio">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://abir9795.github.io/thanks.html">
             <div class="form-honeypot" aria-hidden="true"><label for="contact-website">Leave this field empty</label><input type="text" id="contact-website" name="_honey" tabindex="-1" autocomplete="off"></div>
             <div class="form-row">
               <div class="form-field"><label for="contact-name">Your name <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Alex Rahman" required maxlength="100"></div>
               <div class="form-field"><label for="contact-email">Email address <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="alex@example.com" required maxlength="254"></div>
             </div>
             <div class="form-field"><label for="contact-message">Your message <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" rows="5" placeholder="Hi Mehbur, I’d like to talk about…" required minlength="10" maxlength="5000"></textarea></div>
-            <div class="form-footer"><p class="form-privacy">Your message is sent through <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> to my inbox.</p><button class="button button-cream" type="submit">Send message <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></button></div>
-            <p class="form-status" role="status" aria-live="polite">After sending, you may be asked to complete a quick spam check.</p>
+            <div class="form-footer"><p class="form-privacy">Your message is sent through <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a> to my inbox.</p><button class="button button-cream" type="submit" disabled><span class="submit-label">Send message</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></button></div>
+            <p class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <noscript><p class="form-status">You can reach me directly at <a href="mailto:abir.rahman9795@gmail.com">abir.rahman9795@gmail.com</a>.</p></noscript>
           </form>
         </div>
         <footer class="container site-footer"><a class="footer-name" href="#home">Mehbur Rahman<span>.</span></a><span>© <span id="year">2026</span> · Made with care in Dhaka</span><a href="#home">Back to top ↑</a></footer>

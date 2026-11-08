@@ -120,34 +120,67 @@ if (year) year.textContent = new Date().getFullYear();
 
 const contactForm = document.querySelector('[data-contact-form]');
 const formStatus = contactForm?.querySelector('.form-status');
-const formRedirect = contactForm?.querySelector('input[name="_next"]');
-if (formRedirect && /^https?:$/.test(window.location.protocol)) {
-  formRedirect.value = new URL('thanks.html', window.location.href).href;
-}
-contactForm?.addEventListener('submit', event => {
+const submitButton = contactForm?.querySelector('button[type="submit"]');
+const submitLabel = submitButton?.querySelector('.submit-label');
+let isSending = false;
+
+contactForm?.addEventListener('submit', async event => {
+  event.preventDefault();
+  if (isSending) return;
+
   const name = contactForm.elements.namedItem('name');
+  const email = contactForm.elements.namedItem('email');
   const message = contactForm.elements.namedItem('message');
   name.value = name.value.trim();
+  email.value = email.value.trim();
   message.value = message.value.trim();
   name.setCustomValidity(name.value ? '' : 'Please enter your name.');
   message.setCustomValidity(message.value.length >= 10 ? '' : 'Please write a message of at least 10 characters.');
-  if (!contactForm.reportValidity()) {
-    event.preventDefault();
-    return;
-  }
-  // FormSubmit handles delivery and its spam check through the native POST.
-  // Only the provider redirects to thanks.html; this page never invents a sent state.
-  formStatus.textContent = 'Continuing to the secure send step…';
+  if (!contactForm.reportValidity()) return;
+
+  const payload = Object.fromEntries(new FormData(contactForm));
+  payload._url = window.location.href.split('#')[0];
+  const fields = [name, email, message];
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
+
+  isSending = true;
+  submitButton.disabled = true;
+  submitLabel.textContent = 'Sending…';
+  fields.forEach(field => { field.readOnly = true; });
+  contactForm.setAttribute('aria-busy', 'true');
+  formStatus.textContent = 'Sending your message…';
   formStatus.dataset.state = 'pending';
+
+  try {
+    const response = await fetch(contactForm.dataset.submitEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload),
+      signal: controller.signal,
+    });
+    const result = await response.json();
+    if (!response.ok || (result.success !== true && result.success !== 'true')) {
+      throw new Error('Submission was not confirmed');
+    }
+    contactForm.reset();
+    formStatus.textContent = 'Thanks! Your message has been sent. I’ll get back to you by email.';
+    formStatus.dataset.state = 'success';
+  } catch {
+    formStatus.textContent = 'Couldn’t confirm your message was sent. Your message is still here — please try again or use the email link.';
+    formStatus.dataset.state = 'error';
+  } finally {
+    clearTimeout(timeout);
+    isSending = false;
+    submitButton.disabled = false;
+    submitLabel.textContent = 'Send message';
+    fields.forEach(field => { field.readOnly = false; });
+    contactForm.removeAttribute('aria-busy');
+  }
 });
+if (submitButton) submitButton.disabled = false;
 contactForm?.querySelectorAll('input, textarea').forEach(field => {
   field.addEventListener('input', () => field.setCustomValidity(''));
-});
-window.addEventListener('pageshow', () => {
-  if (formStatus) {
-    formStatus.textContent = 'After sending, you may be asked to complete a quick spam check.';
-    delete formStatus.dataset.state;
-  }
 });
 
 if ('IntersectionObserver' in window && navigation) {
