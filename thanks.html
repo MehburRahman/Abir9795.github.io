@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#111813">
     <meta name="robots" content="noindex">
     <title>Thanks for reaching out — Mehbur Rahman</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
     <script>
       try {
         const savedTheme = localStorage.getItem('mehbur-theme');
@@ -15,7 +15,7 @@
       document.querySelector('meta[name="theme-color"]').content =
         document.documentElement.dataset.theme === 'light' ? '#f6f5ef' : '#111813';
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <script src="script.js?v=3" defer></script>
   </head>
   <body>
@@ -24,7 +24,7 @@
       <symbol id="moon" viewBox="0 0 24 24"><path d="M21 13.2A9 9 0 0 1 10.8 3a9 9 0 1 0 10.2 10.2Z"/></symbol>
     </svg>
     <header class="site-header"><div class="container header-inner">
-      <a class="brand" href="index.html"><span class="brand-mark">m<span>.</span></span><span>Mehbur Rahman</span></a>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">MR<span>.</span></span><span>Mehbur Rahman</span></a>
       <div class="header-controls"><button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode"><svg class="icon theme-icon-sun" aria-hidden="true" focusable="false"><use href="#sun"/></svg><svg class="icon theme-icon-moon" aria-hidden="true" focusable="false"><use href="#moon"/></svg><span class="theme-toggle-label sr-only">Switch to light mode</span></button></div>
     </div></header>
     <main class="container section-space thank-you-page">

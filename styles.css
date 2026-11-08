@@ -136,7 +136,7 @@ h2 em { font-family: var(--serif); font-weight: 400; letter-spacing: -.045em; }
 .site-header { position: sticky; top: 0; z-index: 10; background: var(--header-bg); border-bottom: 1px solid var(--line); }
 .header-inner { min-height: 87px; display: flex; align-items: center; gap: 25px; }
 .brand { display: inline-flex; align-items: center; gap: 14px; font-size: 14px; font-weight: 600; letter-spacing: -.025em; }
-.brand-mark { font-family: var(--serif); font-size: 41px; font-weight: 700; line-height: 1; letter-spacing: -.13em; padding-right: 6px; }
+.brand-mark { font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1; letter-spacing: -.085em; padding-right: 3px; }
 .brand-mark > span { color: var(--orange); }
 .site-nav { order: 1; margin-left: auto; display: flex; align-items: center; gap: 26px; font-size: 12px; }
 .site-nav > a { display: inline-flex; align-items: center; min-height: 44px; padding-block: 8px; transition: color .18s; }
@@ -199,11 +199,9 @@ h1 em { color: var(--green); font-family: var(--serif); font-weight: 400; letter
 .filter-button:not(.is-active):hover { background: var(--sage); border-color: var(--line); }
 .filter-button span { margin-left: 9px; font-size: 9px; opacity: .75; }
 .project-count { color: var(--muted); font-size: 10px; white-space: nowrap; }
-.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-.project-card { min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: var(--white); }
-.project-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; }
-.project-content { padding: 28px 30px 25px; }
-.project-featured .project-content { padding: 38px 35px 32px; align-self: center; }
+.project-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.project-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-width: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 7px; background: var(--white); }
+.project-content { padding: 38px 35px 32px; align-self: center; }
 .project-topline { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 15px; }
 .project-topline .small-label { font-size: 9px; color: var(--muted); letter-spacing: .065em; }
 .project-type { font-size: 9px; color: var(--orange); }
@@ -223,8 +221,18 @@ h1 em { color: var(--green); font-family: var(--serif); font-weight: 400; letter
 .all-work-link .icon { width: 15px; height: 15px; }
 .all-work-link:hover { color: var(--green); }
 
-/* These are original project illustrations, not product screenshots. */
-.project-art { min-width: 0; min-height: 300px; position: relative; padding: 25px 30px 23px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+/* Real screenshots retain their full frame and open at their original resolution. */
+.project-media { display: flex; flex-direction: column; justify-content: center; min-width: 0; min-height: 350px; margin: 0; padding: 30px; background: var(--sage); }
+.project-image-link { display: block; position: relative; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); }
+.project-image-link img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; border-radius: 4px; }
+.screenshot-open { position: absolute; top: 10px; right: 10px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--outline-border); border-radius: 50%; background: var(--paper); color: var(--ink); }
+.screenshot-open .icon { width: 15px; height: 15px; }
+.project-image-link:hover .screenshot-open, .project-image-link:focus-visible .screenshot-open { background: var(--primary-bg); color: var(--primary-ink); }
+.project-media figcaption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 5px 14px; margin-top: 13px; color: var(--muted); font-size: 9px; line-height: 1.7; }
+
+/* South-Stack and FabricFlow keep their illustrations until screenshots are supplied. */
+.project-art { min-width: 0; min-height: 350px; position: relative; padding: 30px; display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.project-art > .ide-window, .project-art > .fabric-dashboard { width: 100%; max-width: 500px; align-self: center; }
 .art-label { display: block; font-size: 8px; letter-spacing: .15em; opacity: .8; margin-bottom: 24px; }
 .art-caption { display: block; margin-top: 20px; font-size: 8px; opacity: .75; }
 .bus-art { background: #eedbc1; color: #704e2f; padding: 33px; }
@@ -458,9 +466,8 @@ html[data-theme="dark"] .fabric-art { background: #383326; color: #e5d6b4; }
   .hero-socials { gap: 16px; }
   .hero-socials .location { flex-basis: 100%; }
   .about-grid, .experience-section, .contact-inner { gap: 60px; }
-  .project-content { padding-inline: 24px; }
-  .project-featured .project-content { padding: 29px 27px; }
-  .project-art { padding-inline: 23px; }
+  .project-content { padding: 29px 27px; }
+  .project-art, .project-media { padding-inline: 23px; }
   .focus-strip { gap: 23px; }
   .focus-strip > div + div { padding-left: 23px; }
   .focus-strip > div > span:last-child { font-size: 11px; }
@@ -514,12 +521,13 @@ html[data-theme="dark"] .fabric-art { background: #383326; color: #e5d6b4; }
   .section-heading h2 { font-size: 36px; }
   .section-intro { width: 210px; font-size: 11px; }
   .project-grid { gap: 20px; }
-  .project-featured { grid-template-columns: 1fr; }
-  .project-featured .project-art { min-height: 350px; padding: 26px 50px; }
+  .project-card { grid-template-columns: minmax(0, 1fr); }
+  .project-art { min-height: 350px; padding: 26px 50px; }
+  .project-media { min-height: 0; padding: 26px; }
+  .project-image-link, .project-media figcaption { width: 100%; max-width: 580px; margin-inline: auto; }
   .bus-window { max-width: 390px; width: 100%; margin-inline: auto; }
   .project-content h3 { font-size: 26px; }
-  .project-content, .project-featured .project-content { padding: 25px; }
-  .project-art { min-height: 270px; padding-inline: 17px; }
+  .project-content { padding: 25px; }
   .ide-body { grid-template-columns: 65px 1fr; }
   .ide-sidebar { padding-inline: 6px; font-size: 6px; }
   .ide-editor { padding-inline: 8px; }
@@ -564,7 +572,7 @@ html[data-theme="dark"] .fabric-art { background: #383326; color: #e5d6b4; }
   .container { width: calc(100% - 40px); }
   .header-inner { min-height: 70px; flex-wrap: wrap; gap: 0; }
   .brand { gap: 11px; font-size: 13px; }
-  .brand-mark { font-size: 36px; }
+  .brand-mark { font-size: 30px; }
   .header-controls { gap: 10px; }
   .site-nav { gap: 7px 20px; }
   .js .menu-toggle { padding-left: 7px; }
@@ -599,14 +607,13 @@ html[data-theme="dark"] .fabric-art { background: #383326; color: #e5d6b4; }
   .filter-button span { font-size: 8px; margin-left: 4px; }
   .project-count { font-size: 8px; }
   .project-grid { grid-template-columns: 1fr; gap: 24px; }
-  .project-featured { grid-column: auto; }
-  .project-art, .project-featured .project-art { padding: 25px; min-height: 292px; }
-  .project-featured .project-art { padding: 25px; min-height: 360px; }
+  .project-art { padding: 25px; min-height: 300px; }
+  .project-media { padding: 20px; }
   .bus-window { max-width: 335px; }
   .bus-window-body { padding: 20px; }
   .art-label { font-size: 7px; margin-bottom: 22px; }
   .art-caption { font-size: 7px; margin-top: 22px; }
-  .project-content, .project-featured .project-content { padding: 24px; }
+  .project-content { padding: 24px; }
   .project-content h3 { font-size: 29px; }
   .project-content > p { font-size: 12px; }
   .project-topline .project-type { display: block; font-size: 8px; }
@@ -681,8 +688,8 @@ html[data-theme="dark"] .fabric-art { background: #383326; color: #e5d6b4; }
   .portrait-frame img { height: 290px; }
   .filter-button { font-size: 8px; padding-inline: 7px; }
   .project-count { display: none; }
-  .project-art, .project-featured .project-art { padding-inline: 17px; }
-  .project-content, .project-featured .project-content { padding-inline: 19px; }
+  .project-art, .project-media { padding-inline: 17px; }
+  .project-content { padding-inline: 19px; }
   .section-heading h2, .about-story h2, .experience-intro h2 { font-size: 30px; }
   .code-line { font-size: 5.5px; }
   .ide-body { grid-template-columns: 66px 1fr; }

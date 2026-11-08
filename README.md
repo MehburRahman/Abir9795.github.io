@@ -35,6 +35,15 @@ npm run build
 | `assets/Mehbur_Rahman_CV.pdf` | Supplied CV, preserved without modification |
 | `assets/favicon.svg` | Browser tab icon |
 
+All four selected projects use the same full-width row layout on desktop and stack their image above the description on smaller screens. The header and browser tab use the MR monogram.
+
+### Project images
+
+- `assets/projects/fastbus-admin-dashboard.png`: original [FastBus admin dashboard screenshot](https://raw.githubusercontent.com/Abir9795/FastBus/main/docs/screenshots/admin-dashboard.png).
+- `assets/projects/speech-application.png`: original [Speech Intelligence application screenshot](https://raw.githubusercontent.com/Abir9795/speech-intelligence-system/main/docs/images/application.png).
+
+The screenshots are stored locally, load lazily, preserve their full frame, and open at original resolution when clicked. South-Stack and FabricFlow retain their labelled illustrations until screenshots are supplied. To replace either, add its screenshot to `assets/projects/` and use the existing `project-media` figure structure in its card.
+
 Dark mode is the default. A visitor's explicit choice is saved under `mehbur-theme` in local storage. If storage is blocked, theme switching still works for the current page. Without JavaScript, content and project source links remain available, and the contact section provides a direct email link.
 
 ## Contact form and delivery checks
@@ -69,6 +78,6 @@ To move to another host or domain later:
 
 Project descriptions use the CV and public repository documentation. FabricFlow is included as a business application. SkillForge links to CSE499 and is marked in development. PAFR is marked ongoing research, with evaluations described as planned. No model-training claims, invented benchmark results, cloud certifications, or professional DevOps experience are implied.
 
-Education dates were recovered from text outside the original CV page boundary: expected NSU graduation December 2026, HSC 2020, and SSC 2018. Project artwork is labelled illustration and is not presented as an application screenshot.
+Education dates were recovered from text outside the original CV page boundary: expected NSU graduation December 2026, HSC 2020, and SSC 2018. FastBus and Speech Intelligence show real application screenshots; South-Stack and FabricFlow use labelled illustrations.
 
 Validation covers JavaScript syntax, HTML structure and local references, ARIA references, theme switching and saved preferences, project filtering, menu and dialog handlers, form validation, asynchronous success/error handling, duplicate prevention, timeouts, primary text contrast, and the static build. DOM checks do not establish browser layout, native keyboard focus behavior, spam-check behavior, or email delivery. No browser connection was available for visual testing; verify the layout in your own phone and desktop browsers before sending the link to recruiters.

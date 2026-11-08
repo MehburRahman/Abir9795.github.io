@@ -10,7 +10,7 @@
     <meta property="og:description" content="Selected projects, the thinking behind them, and a little about me. CSE student at North South University, Dhaka.">
     <meta property="og:image" content="https://abir9795.github.io/assets/mehbur-rahman.jpg">
     <title>Mehbur Rahman — Software, AI & what's next</title>
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=2">
     <link rel="canonical" href="https://abir9795.github.io/">
     <meta property="og:url" content="https://abir9795.github.io/">
     <script>
@@ -24,7 +24,7 @@
       document.querySelector('meta[name="theme-color"]').content =
         document.documentElement.dataset.theme === 'light' ? '#f6f5ef' : '#111813';
     </script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <script src="script.js?v=3" defer></script>
   </head>
   <body>
@@ -48,7 +48,7 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <a class="brand" href="#home" aria-label="Mehbur Rahman, home"><span class="brand-mark">m<span>.</span></span><span>Mehbur Rahman</span></a>
+        <a class="brand" href="#home" aria-label="Mehbur Rahman, home"><span class="brand-mark" aria-hidden="true">MR<span>.</span></span><span>Mehbur Rahman</span></a>
         <nav class="site-nav" id="site-nav" aria-label="Main navigation">
           <a href="#work">Work</a>
           <a href="#ongoing">Ongoing work</a>
@@ -96,12 +96,14 @@
         <div class="section-heading"><div><p class="eyebrow"><span>01</span> Selected work</p><h2 id="work-title">From an idea to<br><em>something you can use.</em></h2></div><p class="section-intro">Web applications, business tools, and applied AI. Here’s a closer look at what these projects do.</p></div>
         <div class="work-toolbar"><div class="project-filters" role="group" aria-label="Filter projects"><button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All projects <span>04</span></button><button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web & backend</button><button class="filter-button" type="button" data-filter="ai" aria-pressed="false">AI & systems</button></div><span class="project-count" aria-live="polite" aria-atomic="true">4 projects</span></div>
         <div class="project-grid">
-          <article class="project-card project-featured" data-categories="web">
-            <div class="project-art bus-art" role="img" aria-label="FastBus project illustration: a booking flow with a seat map">
-              <span class="art-label">THE BOOKING FLOW</span>
-              <div class="bus-window"><div class="bus-window-header"><span class="bus-logo">f<span>→</span> FastBus</span><span class="window-dots" aria-hidden="true">•••</span></div><div class="bus-window-body"><div class="route-line"><span>DHA<span>Dhaka</span></span><span class="route-track" aria-hidden="true">→</span><span>CTG<span>Chattogram</span></span></div><div class="ticket-rule"></div><div class="booking-preview"><div><span class="preview-label">A smoother journey.</span><p>Find a route.<br>Pick your seat.<br>You’re on your way.</p><span class="demo-badge">Booking application</span></div><div class="seat-map" aria-hidden="true"><i></i><i></i><i class="seat-taken"></i><i></i><i></i><i class="seat-selected"></i><i></i><i></i><i class="seat-taken"></i><i></i><i></i><i></i></div></div></div><div class="bus-window-footer"><span>01 SEARCH</span><span>02 SELECT</span><span>03 BOOK</span></div></div>
-              <span class="art-caption">Flask + PostgreSQL / Project illustration</span>
-            </div>
+          <article class="project-card" data-categories="web">
+            <figure class="project-media">
+              <a class="project-image-link" href="assets/projects/fastbus-admin-dashboard.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full FastBus screenshot in a new tab">
+                <img src="assets/projects/fastbus-admin-dashboard.png" alt="FastBus admin dashboard showing booking, revenue, occupancy metrics, and trend charts." width="2940" height="1600" loading="lazy" decoding="async">
+                <span class="screenshot-open" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></span>
+              </a>
+              <figcaption><span>FastBus · Admin dashboard</span><span>Click image to enlarge</span></figcaption>
+            </figure>
             <div class="project-content"><div class="project-topline"><span class="small-label">01 / Full-stack application</span><span class="project-type">Web & backend</span></div><h3>FastBus<span class="title-dot">.</span></h3><p>A full-stack bus booking application for routes, seat availability, reservations, and cancellations, with JWT authentication and role-protected administration.</p><ul class="tag-list" aria-label="FastBus technologies"><li>Flask</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker Compose</li></ul><div class="project-links"><a class="text-link" href="https://github.com/Abir9795/FastBus" target="_blank" rel="noopener noreferrer">View source <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for FastBus</span></a><button class="project-notes" type="button" data-dialog="fastbus-notes" aria-label="Read project notes for FastBus">Project notes <span aria-hidden="true">+</span></button></div></div>
           </article>
 
@@ -111,10 +113,16 @@
           </article>
 
           <article class="project-card" data-categories="ai">
-            <div class="project-art speech-art" role="img" aria-label="Speech Intelligence project illustration: audio input routed to command recognition, speaker identification and transcription"><span class="art-label">ONE INPUT. THREE WAYS TO LISTEN.</span><div class="audio-panel"><div class="audio-header"><span><span class="audio-dot"></span>Speech Intelligence</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#layers"/></svg></div><div class="waveform" aria-hidden="true"><i style="--h:14px"></i><i style="--h:24px"></i><i style="--h:18px"></i><i style="--h:38px"></i><i style="--h:54px"></i><i style="--h:32px"></i><i style="--h:64px"></i><i style="--h:78px"></i><i style="--h:48px"></i><i style="--h:68px"></i><i style="--h:90px"></i><i style="--h:58px"></i><i style="--h:36px"></i><i style="--h:72px"></i><i style="--h:48px"></i><i style="--h:28px"></i><i style="--h:52px"></i><i style="--h:34px"></i><i style="--h:20px"></i><i style="--h:12px"></i></div><div class="audio-tasks"><span><b>01</b>Commands<small>PyTorch CNN</small></span><span><b>02</b>Speaker ID<small>Linear SVM</small></span><span><b>03</b>Transcription<small>Whisper Base</small></span></div></div><span class="art-caption">Audio meets machine learning / Project illustration</span></div>
+            <figure class="project-media">
+              <a class="project-image-link" href="assets/projects/speech-application.png" target="_blank" rel="noopener noreferrer" aria-label="Open the full Speech Intelligence screenshot in a new tab">
+                <img src="assets/projects/speech-application.png" alt="Speech Recognition System interface with audio upload, live recording, speaker monitoring, and a predicted voice command." width="958" height="519" loading="lazy" decoding="async">
+                <span class="screenshot-open" aria-hidden="true"><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></span>
+              </a>
+              <figcaption><span>Speech Intelligence · Application interface</span><span>Click image to enlarge</span></figcaption>
+            </figure>
             <div class="project-content"><div class="project-topline"><span class="small-label">03 / Applied machine learning</span><span class="project-type">AI & audio</span></div><h3>Speech Intelligence<span class="title-dot">.</span></h3><p>A speech pipeline combining CNN voice command recognition, SVM speaker identification, and Whisper transcription through Flask APIs and browser recording.</p><ul class="tag-list" aria-label="Speech Intelligence technologies"><li>Python</li><li>PyTorch</li><li>Whisper</li><li>Flask</li></ul><div class="project-links"><a class="text-link" href="https://github.com/Abir9795/speech-intelligence-system" target="_blank" rel="noopener noreferrer">View source <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><button class="project-notes" type="button" data-dialog="speech-notes" aria-label="Read project notes for Speech Intelligence">Project notes <span aria-hidden="true">+</span></button></div></div>
           </article>
-          <article class="project-card project-featured" data-categories="web">
+          <article class="project-card" data-categories="web">
             <div class="project-art fabric-art" role="img" aria-label="FabricFlow project illustration: orders, inventory, production, and invoices in an operations dashboard">
               <span class="art-label">A BUSINESS, CONNECTED</span>
               <div class="fabric-dashboard">
