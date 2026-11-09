@@ -2,8 +2,8 @@
 
 A static portfolio built with HTML, CSS, and JavaScript. It includes a persistent dark/light switch, project filtering, project-note dialogs, education, ongoing research and development, and a contact form.
 
-- Website: https://abir9795.github.io/
-- Repository: https://github.com/Abir9795/Abir9795.github.io
+- Website: https://mehburrahman.github.io/
+- Repository: https://github.com/MehburRahman/mehburrahman.github.io
 
 ## Run locally
 
@@ -39,8 +39,8 @@ All four selected projects use the same full-width row layout on desktop and sta
 
 ### Project images
 
-- `assets/projects/fastbus-admin-dashboard.png`: original [FastBus admin dashboard screenshot](https://raw.githubusercontent.com/Abir9795/FastBus/main/docs/screenshots/admin-dashboard.png).
-- `assets/projects/speech-application.png`: original [Speech Intelligence application screenshot](https://raw.githubusercontent.com/Abir9795/speech-intelligence-system/main/docs/images/application.png).
+- `assets/projects/fastbus-admin-dashboard.png`: original [FastBus admin dashboard screenshot](https://raw.githubusercontent.com/MehburRahman/FastBus/main/docs/screenshots/admin-dashboard.png).
+- `assets/projects/speech-application.png`: original [Speech Intelligence application screenshot](https://raw.githubusercontent.com/MehburRahman/speech-intelligence-system/main/docs/images/application.png).
 
 The screenshots are stored locally, load lazily, preserve their full frame, and open at original resolution when clicked. South-Stack and FabricFlow retain their labelled illustrations until screenshots are supplied. To replace either, add its screenshot to `assets/projects/` and use the existing `project-media` figure structure in its card.
 
