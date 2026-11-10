@@ -47,7 +47,7 @@ document.addEventListener('keydown', event => {
 document.addEventListener('click', event => {
   if (!event.target.closest('.site-header')) closeMenu();
 });
-window.matchMedia('(min-width: 821px)').addEventListener('change', closeMenu);
+window.matchMedia('(min-width: 961px)').addEventListener('change', closeMenu);
 
 const filterButtons = [...document.querySelectorAll('[data-filter]')];
 const projects = [...document.querySelectorAll('[data-categories]')];

@@ -24,12 +24,14 @@
       document.querySelector('meta[name="theme-color"]').content =
         document.documentElement.dataset.theme === 'light' ? '#f6f5ef' : '#111813';
     </script>
-    <link rel="stylesheet" href="styles.css?v=2">
-    <script src="script.js?v=3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=4">
+    <script src="script.js?v=4" defer></script>
   </head>
   <body>
     <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <symbol id="arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M6 6h12v12"/></symbol>
+      <symbol id="arrow-up" viewBox="0 0 24 24"><path d="M12 20V4m-6 6 6-6 6 6"/></symbol>
+      <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
       <symbol id="arrow-right" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
       <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
       <symbol id="github" viewBox="0 0 24 24"><path d="M9 19c-4.5 1.4-4.5-2.5-6.3-3M15 22v-3.9c.1-1-.3-1.7-.8-2.1 2.7-.3 5.5-1.3 5.5-6A4.7 4.7 0 0 0 18.5 7c.1-.3.5-1.5-.1-3 0 0-1-.3-3.2 1.2a11 11 0 0 0-5.8 0C7.2 3.7 6.2 4 6.2 4c-.6 1.5-.2 2.7-.1 3A4.7 4.7 0 0 0 4.8 10c0 4.7 2.8 5.7 5.5 6-.4.3-.7 1-.8 1.8V22"/></symbol>
@@ -77,7 +79,11 @@
             <a class="button button-primary" href="#work">Explore my work <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-right"/></svg></a>
             <a class="button button-outline" href="assets/Mehbur_Rahman_CV.pdf?v=2" download>Download CV <svg class="icon" aria-hidden="true" focusable="false"><use href="#download"/></svg></a>
           </div>
-          <div class="hero-socials"><a href="https://github.com/MehburRahman" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><a href="https://www.linkedin.com/in/mehbur-rahman" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><span class="location"><svg class="icon" aria-hidden="true" focusable="false"><use href="#location"/></svg>Dhaka, Bangladesh</span></div>
+          <div class="hero-socials" aria-label="Find me online">
+            <a class="social-link" href="https://github.com/MehburRahman" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg><span>GitHub</span><svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
+            <a class="social-link" href="https://www.linkedin.com/in/mehbur-rahman" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#linkedin"/></svg><span>LinkedIn</span><svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
+            <span class="location"><svg class="icon" aria-hidden="true" focusable="false"><use href="#location"/></svg>Dhaka, Bangladesh</span>
+          </div>
         </div>
         <div class="hero-visual">
           <div class="portrait-frame"><img src="assets/mehbur-rahman.jpg" alt="Mehbur Rahman smiling, wearing a blue suit" width="800" height="800" fetchpriority="high"><span class="portrait-corner" aria-hidden="true">↗</span></div>
@@ -104,12 +110,12 @@
               </a>
               <figcaption><span>FastBus · Admin dashboard</span><span>Click image to enlarge</span></figcaption>
             </figure>
-            <div class="project-content"><div class="project-topline"><span class="small-label">01 / Full-stack application</span><span class="project-type">Web & backend</span></div><h3>FastBus<span class="title-dot">.</span></h3><p>A full-stack bus booking application for routes, seat availability, reservations, and cancellations, with JWT authentication and role-protected administration.</p><ul class="tag-list" aria-label="FastBus technologies"><li>Flask</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker Compose</li></ul><div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/FastBus" target="_blank" rel="noopener noreferrer">View source <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for FastBus</span></a><button class="project-notes" type="button" data-dialog="fastbus-notes" aria-label="Read project notes for FastBus">Project notes <span aria-hidden="true">+</span></button></div></div>
+            <div class="project-content"><div class="project-topline"><span class="small-label">01 / Full-stack application</span><span class="project-type">Web & backend</span></div><h3>FastBus<span class="title-dot">.</span></h3><p>A full-stack bus booking application for routes, seat availability, reservations, and cancellations, with JWT authentication and role-protected administration.</p><ul class="tag-list" aria-label="FastBus technologies"><li>Flask</li><li>PostgreSQL</li><li>SQLAlchemy</li><li>Docker Compose</li></ul><div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/FastBus" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg><span>View source</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for FastBus</span></a><button class="project-notes" type="button" data-dialog="fastbus-notes" aria-label="Read project notes for FastBus">Project notes <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-right"/></svg></button></div></div>
           </article>
 
           <article class="project-card" data-categories="web ai">
             <div class="project-art stack-art" role="img" aria-label="South-Stack project illustration: from image input to a browser development environment"><span class="art-label">FROM REFERENCE TO INTERFACE</span><div class="ide-window"><div class="ide-topbar"><span class="ide-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>south-stack / workspace</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#code"/></svg></div><div class="ide-body"><div class="ide-sidebar"><span>EXPLORER</span><span class="ide-file">▾ project</span><span>⌑ src</span><span class="ide-file active-file">↳ App.tsx</span><span>↳ styles.css</span></div><div class="ide-editor"><div class="code-line"><b>01</b><span><i>const</i> idea = {</span></div><div class="code-line"><b>02</b><span>&nbsp; input: <em>'your vision'</em>,</span></div><div class="code-line"><b>03</b><span>&nbsp; output: <em>'a starting point'</em></span></div><div class="code-line"><b>04</b><span>};</span></div><div class="vision-flow"><span>▧ Image</span><span aria-hidden="true">→</span><span>⌘ Vision</span><span aria-hidden="true">→</span><span>↗ Design</span></div></div></div><div class="ide-status"><span>● Vision workflow</span><span>React + TypeScript</span></div></div><span class="art-caption">Collaborative browser IDE / Project illustration</span></div>
-            <div class="project-content"><div class="project-topline"><span class="small-label">02 / Collaborative project</span><span class="project-type">Web + AI</span></div><h3>South-Stack<span class="title-dot">.</span></h3><p>A collaborative AI assisted browser IDE with a virtual filesystem, image-to-design tools, and a plan, execute, verify workflow.</p><ul class="tag-list" aria-label="South-Stack technologies"><li>React</li><li>TypeScript</li><li>Vite</li><li>WebContainers</li></ul><div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/South-Stack" target="_blank" rel="noopener noreferrer">View source <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for South-Stack</span></a><button class="project-notes" type="button" data-dialog="southstack-notes" aria-label="Read project notes for South-Stack">Project notes <span aria-hidden="true">+</span></button></div></div>
+            <div class="project-content"><div class="project-topline"><span class="small-label">02 / Collaborative project</span><span class="project-type">Web + AI</span></div><h3>South-Stack<span class="title-dot">.</span></h3><p>A collaborative AI assisted browser IDE with a virtual filesystem, image-to-design tools, and a plan, execute, verify workflow.</p><ul class="tag-list" aria-label="South-Stack technologies"><li>React</li><li>TypeScript</li><li>Vite</li><li>WebContainers</li></ul><div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/South-Stack" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg><span>View source</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for South-Stack</span></a><button class="project-notes" type="button" data-dialog="southstack-notes" aria-label="Read project notes for South-Stack">Project notes <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-right"/></svg></button></div></div>
           </article>
 
           <article class="project-card" data-categories="ai">
@@ -120,7 +126,7 @@
               </a>
               <figcaption><span>Speech Intelligence · Application interface</span><span>Click image to enlarge</span></figcaption>
             </figure>
-            <div class="project-content"><div class="project-topline"><span class="small-label">03 / Applied machine learning</span><span class="project-type">AI & audio</span></div><h3>Speech Intelligence<span class="title-dot">.</span></h3><p>A speech pipeline combining CNN voice command recognition, SVM speaker identification, and Whisper transcription through Flask APIs and browser recording.</p><ul class="tag-list" aria-label="Speech Intelligence technologies"><li>Python</li><li>PyTorch</li><li>Whisper</li><li>Flask</li></ul><div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/speech-intelligence-system" target="_blank" rel="noopener noreferrer">View source <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><button class="project-notes" type="button" data-dialog="speech-notes" aria-label="Read project notes for Speech Intelligence">Project notes <span aria-hidden="true">+</span></button></div></div>
+            <div class="project-content"><div class="project-topline"><span class="small-label">03 / Applied machine learning</span><span class="project-type">AI & audio</span></div><h3>Speech Intelligence<span class="title-dot">.</span></h3><p>A speech pipeline combining CNN voice command recognition, SVM speaker identification, and Whisper transcription through Flask APIs and browser recording.</p><ul class="tag-list" aria-label="Speech Intelligence technologies"><li>Python</li><li>PyTorch</li><li>Whisper</li><li>Flask</li></ul><div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/speech-intelligence-system" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg><span>View source</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><button class="project-notes" type="button" data-dialog="speech-notes" aria-label="Read project notes for Speech Intelligence">Project notes <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-right"/></svg></button></div></div>
           </article>
           <article class="project-card" data-categories="web">
             <div class="project-art fabric-art" role="img" aria-label="FabricFlow project illustration: orders, inventory, production, and invoices in an operations dashboard">
@@ -137,11 +143,11 @@
               <h3>FabricFlow<span class="title-dot">.</span></h3>
               <p>A fabric business dashboard that brings orders, inventory, employees, and invoices into one place. Transaction-safe stock updates and sale-time pricing keep business records consistent.</p>
               <ul class="tag-list" aria-label="FabricFlow technologies"><li>PHP</li><li>MySQL</li><li>HTML / CSS</li><li>mysqli</li></ul>
-              <div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/fabric-flow" target="_blank" rel="noopener noreferrer">View source <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for FabricFlow</span></a><button class="project-notes" type="button" data-dialog="fabricflow-notes" aria-label="Read project notes for FabricFlow">Project notes <span aria-hidden="true">+</span></button></div>
+              <div class="project-links"><a class="text-link" href="https://github.com/MehburRahman/fabric-flow" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg><span>View source</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg><span class="sr-only"> for FabricFlow</span></a><button class="project-notes" type="button" data-dialog="fabricflow-notes" aria-label="Read project notes for FabricFlow">Project notes <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-right"/></svg></button></div>
             </div>
           </article>
         </div>
-        <a class="all-work-link" href="https://github.com/MehburRahman?tab=repositories" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg>More experiments live on GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
+        <a class="all-work-link" href="https://github.com/MehburRahman?tab=repositories" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg>Explore all repositories <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
       </section>
 
       <section class="ongoing-section section-space container" id="ongoing" aria-labelledby="ongoing-title">
@@ -192,9 +198,13 @@
               <div class="contact-direct"><svg class="icon" aria-hidden="true" focusable="false"><use href="#mail"/></svg><div><span class="small-label">Email</span><a href="mailto:abir.rahman9795@gmail.com">abir.rahman9795@gmail.com</a></div></div>
               <div class="contact-direct"><svg class="icon" aria-hidden="true" focusable="false"><use href="#phone"/></svg><div><span class="small-label">Phone</span><a href="tel:+8801705121235">+880 1705-121235</a></div></div>
             </div>
-            <button class="copy-email" type="button" data-copy-email="abir.rahman9795@gmail.com"><span class="copy-label">Copy email address</span><span aria-hidden="true">⧉</span></button>
+            <button class="copy-email" type="button" data-copy-email="abir.rahman9795@gmail.com"><span class="copy-label">Copy email address</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#copy"/></svg></button>
             <span class="copy-status sr-only" role="status"></span>
-            <div class="contact-socials"><a href="https://www.linkedin.com/in/mehbur-rahman" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><a href="https://github.com/MehburRahman" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a><a href="https://codeforces.com/profile/abir.rahman9795" target="_blank" rel="noopener noreferrer">Codeforces <svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a></div>
+            <div class="contact-socials" aria-label="Social profiles">
+              <a class="social-link" href="https://www.linkedin.com/in/mehbur-rahman" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#linkedin"/></svg><span>LinkedIn</span><svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
+              <a class="social-link" href="https://github.com/MehburRahman" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#github"/></svg><span>GitHub</span><svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
+              <a class="social-link" href="https://codeforces.com/profile/abir.rahman9795" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#code"/></svg><span>Codeforces</span><svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#arrow-up-right"/></svg></a>
+            </div>
           </div>
           <form class="contact-form" action="https://formspree.io/f/xzeelpqp" method="POST" data-contact-form data-submit-endpoint="https://formspree.io/f/xzeelpqp">
             <div class="form-heading"><h3>Send me a message</h3><p>An introduction, a question, or an opportunity. I’m listening.</p></div>
@@ -210,7 +220,10 @@
             <noscript><p class="form-status">You can reach me directly at <a href="mailto:abir.rahman9795@gmail.com">abir.rahman9795@gmail.com</a>.</p></noscript>
           </form>
         </div>
-        <footer class="container site-footer"><a class="footer-name" href="#home">Mehbur Rahman<span>.</span></a><span>© <span id="year">2026</span> · Made with care in Dhaka</span><a href="#home">Back to top ↑</a></footer>
+        <footer class="container site-footer">
+          <div class="footer-identity"><a class="footer-name" href="#home">Mehbur Rahman<span>.</span></a><span class="copyright">© <span id="year">2026</span></span></div>
+          <a class="back-to-top" href="#home"><span>Back to top</span><span class="back-to-top-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#arrow-up"/></svg></span></a>
+        </footer>
       </section>
     </main>
 
