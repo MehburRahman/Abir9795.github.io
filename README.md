@@ -32,7 +32,7 @@ npm run build
 | `styles.css` | Both themes, layout, illustrations, and responsive styles |
 | `script.js` | Theme preference, menu, filters, dialogs, form validation, clipboard action |
 | `assets/mehbur-rahman.jpg` | Supplied portrait |
-| `assets/Mehbur_Rahman_CV.pdf` | CV download with updated GitHub links |
+| `assets/Mehbur_Rahman_CV.pdf` | Latest supplied CV, copied without modification |
 | `assets/favicon.svg` | Browser tab icon |
 
 All four selected projects use the same full-width row layout on desktop and stack their image above the description on smaller screens. The header and browser tab use the MR monogram.
@@ -78,6 +78,8 @@ To move to another host or domain later:
 
 Project descriptions use the CV and public repository documentation. FabricFlow is included as a business application. SkillForge links to CSE499 and is marked in development. PAFR is marked ongoing research, with evaluations described as planned. No model-training claims, invented benchmark results, cloud certifications, or professional DevOps experience are implied.
 
-The downloadable CV now uses the renamed GitHub profile and project links, and its page bounds expose the existing text that was clipped in the original upload. The original uploaded source is unchanged. Education dates were recovered from text outside the original page boundary: expected NSU graduation December 2026, HSC 2020, and SSC 2018. FastBus and Speech Intelligence show real application screenshots; South-Stack and FabricFlow use labelled illustrations.
+The downloadable CV is the latest file supplied from `Essentials/Mehbur_Rahman_CV.pdf`, copied without changing its contents. It replaces the previous file at the same asset path. Both CV links use a version query to refresh cached downloads. Education dates: expected NSU graduation December 2026, HSC 2020, and SSC 2018. FastBus and Speech Intelligence show real application screenshots; South-Stack and FabricFlow use labelled illustrations.
 
 Validation covers JavaScript syntax, HTML structure and local references, ARIA references, theme switching and saved preferences, project filtering, menu and dialog handlers, form validation, asynchronous success/error handling, duplicate prevention, timeouts, primary text contrast, and the static build. DOM checks do not establish browser layout, native keyboard focus behavior, spam-check behavior, or email delivery. No browser connection was available for visual testing; verify the layout in your own phone and desktop browsers before sending the link to recruiters.
+
+The ShaftX control beside the Founder role links to [@shaftx.bd on Instagram](https://www.instagram.com/shaftx.bd/).

@@ -382,8 +382,11 @@ html[data-theme="dark"] .fabric-art { background: #383326; color: #e5d6b4; }
 .experience-item { padding-block: 22px; border-bottom: 1px solid var(--line); }
 .experience-item:first-child { border-top: 1px solid var(--line); }
 .experience-date { display: block; color: var(--muted); font-size: 9px; margin-bottom: 9px; }
-.experience-item h3 { display: flex; justify-content: space-between; gap: 15px; font-size: 19px; letter-spacing: -.025em; line-height: 1.4; }
-.experience-item h3 > span { color: var(--orange); font-size: 22px; }
+.experience-item h3 { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 15px; font-size: 19px; letter-spacing: -.025em; line-height: 1.4; }
+.experience-social-link { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 9px 12px; border: 1px solid var(--outline-border); border-radius: 999px; background: var(--sage); color: var(--ink); font-size: 11px; font-weight: 500; letter-spacing: 0; transition: background .2s, color .2s, border-color .2s; }
+.experience-social-link .icon { width: 16px; height: 16px; }
+.experience-social-link .link-arrow { width: 13px; height: 13px; }
+.experience-social-link:hover { background: var(--white); color: var(--green); border-color: var(--green); }
 .experience-item .experience-org { color: var(--ink); font-size: 12px; margin-top: 4px; }
 .experience-item > p:last-child { color: var(--muted); font-size: 12px; line-height: 1.85; margin-top: 10px; max-width: 380px; }
 
